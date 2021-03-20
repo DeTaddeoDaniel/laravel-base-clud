@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Empleado;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class EmpleadoController extends Controller
 {
@@ -87,6 +88,16 @@ class EmpleadoController extends Controller
     public function update(Request $request, Empleado $empleado)
     {
         $data = request()->except('_token','_method');
+
+        # controlla se l'immagine è cambiata
+        if($request->hasFile('foto')){
+            # trova foto anteriore
+            $remove = Empleado::findOrFail($empleado->id);
+            # cancella foto interiore
+            Storage::delete('pubblic/'.$empleado->foto);
+            # se ci sono cambi della foto cambia con la nuova immagine
+            $data['foto'] = $request->file('foto')->store('uploads','public');
+        }
         
         $empleado::where('id','=',$empleado->id)->update($data);
 
