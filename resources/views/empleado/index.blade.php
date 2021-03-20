@@ -4,7 +4,7 @@
 
     <div class="container">
 
-        <a href="{{route('empleado.create')}}">Registra nuovo dipedente</a>
+        <a href="{{route('empleado.create')}}" class="btn btn-success mb-4">Registra nuovo dipedente</a>
 
         @if (Session::has('mensaje'))
             {{Session::get('mensaje')}}
@@ -32,12 +32,12 @@
                     <td>{{$empleado->ApellidoPaterno}}</td>
                     <td>{{$empleado->Correo}}</td>
                     <td>
-                        <a href="{{route('empleado.edit', $empleado->id)}}">Edit</a>
+                        <a href="{{route('empleado.edit', $empleado->id)}}" class="btn btn-info text-light">Edit</a>
 
-                        <form action="{{route('empleado.destroy', $empleado->id)}}" method="post">
+                        <form action="{{route('empleado.destroy', $empleado->id)}}" method="post" class="d-inline">
                             @csrf
                             @method('DELETE')
-                            <button type="submit">Cancella</button>
+                            <button type="submit" class="btn btn-danger">Cancella</button>
                         </form>
                     </td>
                 </tr>
