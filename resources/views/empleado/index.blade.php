@@ -20,6 +20,8 @@
             <td>{{$empleado->ApellidoPaterno}}</td>
             <td>{{$empleado->Correo}}</td>
             <td>
+                <a href="{{route('empleado.edit', $empleado->id)}}">Edit</a>
+                
                 <form action="{{route('empleado.destroy', $empleado->id)}}" method="post">
                     @csrf
                     @method('DELETE')

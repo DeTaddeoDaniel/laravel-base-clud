@@ -16,7 +16,6 @@ class EmpleadoController extends Controller
     {
         # creiamo una variabile e inseriamo [], dove dentro mettiamo il nome della variabile che ci permettera di vedere i risultati dentro il blade
 
-        #
         $data['empleados'] = Empleado::paginate(500);
         return View('empleado.index',$data);
     }
@@ -51,7 +50,9 @@ class EmpleadoController extends Controller
 
         Empleado::insert($data);
 
-        return response()->json($data);
+        // return response()->json($data);
+        $data['empleados'] = Empleado::paginate(500);
+        return View('empleado.index',$data);
     }
 
     /**
@@ -73,7 +74,7 @@ class EmpleadoController extends Controller
      */
     public function edit(Empleado $empleado)
     {
-        //
+        return View('empleado.edit', compact('empleado'));
     }
 
     /**
@@ -97,7 +98,6 @@ class EmpleadoController extends Controller
     public function destroy($id)
     {
         Empleado::destroy($id);
-
         return redirect('empleado');
 
     }
