@@ -18,5 +18,5 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::resource('empleado', 'EmpleadoController');
+Route::resource('/empleado', 'EmpleadoController');
 
