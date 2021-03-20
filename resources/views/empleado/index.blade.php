@@ -1,3 +1,5 @@
+<a href="{{route('empleado.create')}}">Registra nuovo dipedente</a>
+
 <table class="table table-dark">
     <thead class="thead-light">
         <tr>

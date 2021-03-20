@@ -1,3 +1,5 @@
+    <a href="{{route('empleado.index')}}">Torna alla pagina precedente</a>
+
     {{-- <label for="Nombre">Nombre</label>
     <input type="text" name="Nombre" id="Nombre" placeholder="name" 
     value="{{Request::route()->getName() == 'empleado.create' ? '' : $empleado->Nombre}}">
@@ -31,7 +33,10 @@
     @if(isset($empleado->foto))
         <img src="{{asset('storage').'/'.$empleado->foto}}" height="50" alt="">
     @endif
+
     <label for="foto">Foto</label>
     <input type="file" name="foto" id="foto" >
     <br>
+
+
 
