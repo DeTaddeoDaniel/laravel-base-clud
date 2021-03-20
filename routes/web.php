@@ -21,7 +21,8 @@ Route::get('/', function () {
 #middleware dice che entri solo con autenticazione, se non hai l'autenticazione ti manda fuori dalla sezione
 Route::resource('/empleado', 'EmpleadoController')->middleware('auth');
 
-Auth::routes();
+# opzioni che vogliamo non far vedere
+Auth::routes(['register'=>false, 'reset'=>false]);
 
 # rotta pubblica
 Route::get('/home', 'EmpleadoController@index')->name('home');
