@@ -8,9 +8,7 @@
 
             @csrf
 
-            @include('empleado.form', ['modo' => 'Modalità create'])
-
-            <button type="submit">Salva nuovo dipedente</button>
+            @include('empleado.form', ['modo' => 'Inserisci nuovo dipedente', 'button' => 'Inserisici dipedente'])
 
         </form>
     </div>

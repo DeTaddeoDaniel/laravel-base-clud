@@ -8,12 +8,10 @@
             @csrf
             @method('PUT')
             
-            @include('empleado.form', ['modo' => 'Modalità edit'])
-
-            <button type="submit">Salva Modifiche</button>
+            @include('empleado.form', ['modo' => 'Modifica dati dipedente', 'button' => 'Salva modifiche'])
 
         </form>
 
     </div>
-    
+
 @endsection

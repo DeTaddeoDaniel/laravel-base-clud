@@ -1,44 +1,54 @@
-    <a href="{{route('empleado.index')}}">Torna alla pagina precedente</a>
 
     {{-- <label for="Nombre">Nombre</label>
     <input type="text" name="Nombre" id="Nombre" placeholder="name" 
     value="{{Request::route()->getName() == 'empleado.create' ? '' : $empleado->Nombre}}">
     <br> --}}
 
-    <h2>{{$modo}}</h2>
+    <h2 class="mb-3">{{$modo}}</h2>
     
-    <label for="Nombre">Nombre</label>
-    <input 
-        type="text" name="Nombre" id="Nombre" placeholder="name" 
-        value="{{ isset($empleado->Nombre) ? $empleado->Nombre : '' }}">
-    <br>
+    <div class="form-group">
+        <label for="Nombre">Nombre</label>
+        <input 
+            type="text" name="Nombre" id="Nombre" placeholder="name" 
+            value="{{ isset($empleado->Nombre) ? $empleado->Nombre : '' }}"
+            class="form-control">
+    </div>
 
-    <label for="ApellidoPaterno">ApellidoPaterno</label>
-    <input 
-        type="text" name="ApellidoPaterno" id="ApellidoPaterno" placeholder="ApellidoPaterno" 
-        value="{{isset($empleado->ApellidoPaterno) ? $empleado->ApellidoPaterno : ''}}">
-    <br>
+    <div class="form-group">
+        <label for="ApellidoPaterno">ApellidoPaterno</label>
+        <input 
+            type="text" name="ApellidoPaterno" id="ApellidoPaterno" placeholder="ApellidoPaterno" class="form-control" 
+            value="{{isset($empleado->ApellidoPaterno) ? $empleado->ApellidoPaterno : ''}}">
+    </div>
 
-    <label for="ApellidoMaterno">ApellidoMaterno</label>
-    <input 
-        type="text" name="ApellidoMaterno" id="ApellidoMaterno" placeholder="ApellidoMaterno" 
-        value="{{isset($empleado->ApellidoMaterno) ? $empleado->ApellidoMaterno : ''}}">
-    <br>
+    <div class="form-group">
+        <label for="ApellidoMaterno">ApellidoMaterno</label>
+        <input 
+            type="text" name="ApellidoMaterno" id="ApellidoMaterno" placeholder="ApellidoMaterno"  class="form-control"
+            value="{{isset($empleado->ApellidoMaterno) ? $empleado->ApellidoMaterno : ''}}">
+    </div>
 
-    <label for="Correo">Correo</label>
-    <input 
-        type="text" name="Correo" id="Correo" 
-        placeholder="Correo" 
-        value="{{isset($empleado->Correo) ? $empleado->Correo : ''}}">
-    <br>
+    <div class="form-group">
+        <label for="Correo">Correo</label>
+        <input 
+            type="text" name="Correo" id="Correo" 
+            placeholder="Correo"  class="form-control"
+            value="{{isset($empleado->Correo) ? $empleado->Correo : ''}}">
+    </div>
+    
+    <div class="form-group">
+        @if(isset($empleado->foto))
+            <img src="{{asset('storage').'/'.$empleado->foto}}" height="50" alt="">
+        @else
+            <p>Foto</p>
+        @endif
 
-    @if(isset($empleado->foto))
-        <img src="{{asset('storage').'/'.$empleado->foto}}" height="50" alt="">
-    @endif
+        <label for="foto"></label>
+        <input type="file" name="foto" id="foto" class="form-controll mb-3">
+    </div>
 
-    <label for="foto">Foto</label>
-    <input type="file" name="foto" id="foto" >
-    <br>
+    <button type="submit" class="btn btn-success">{{$button}}</button>
 
+    <a href="{{route('empleado.index')}}" class="btn btn-primary d-inline-block">Torna alla pagina precedente</a>
 
 
