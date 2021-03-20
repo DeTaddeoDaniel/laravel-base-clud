@@ -1,7 +1,6 @@
-<form action="{{route('empleado.store')}}"" method="post" enctype="multipart/form-data" method="POST">
+<form action="{{route('empleado.store')}}"" method="post" enctype="multipart/form-data">
 
     @csrf
-    @method('POST')
 
     <label for="Nombre">Nombre</label>
     <input type="text" name="Nombre" id="Nombre" placeholder="nome">
@@ -23,6 +22,6 @@
     <input type="file" name="foto" id="foto" >
     <br>
 
-    <input type="submit" name="Crea">
+    <button type="submit">Salva nuovo dipedente</button>
 
 </form>

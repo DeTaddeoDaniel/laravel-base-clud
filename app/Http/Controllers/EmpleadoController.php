@@ -35,7 +35,11 @@ class EmpleadoController extends Controller
      */
     public function store(Request $request)
     {
-        $data = request()->all();
+        // $data = request()->all();
+        
+        $data = request()->except('_token','_method');
+        Empleado::insert($data);
+
         return response()->json($data);
     }
 
