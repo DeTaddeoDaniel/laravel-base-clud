@@ -51,7 +51,7 @@ class EmpleadoController extends Controller
 
         Empleado::insert($data);
         
-        return redirect()->route('empleado.index');
+        return redirect()->route('empleado.index')->with('mensaje','Dipedente aggiunto con successo');
     }
 
     /**
@@ -115,7 +115,7 @@ class EmpleadoController extends Controller
             Empleado::destroy($empleado->id);
         }
 
-        return redirect()->route('empleado.index');
+        return redirect()->route('empleado.index')->with('mensaje','Dipedente rimosso con successo');;
 
     }
 }

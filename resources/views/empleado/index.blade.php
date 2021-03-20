@@ -1,5 +1,9 @@
 <a href="{{route('empleado.create')}}">Registra nuovo dipedente</a>
 
+@if (Session::has('mensaje'))
+    {{Session::get('mensaje')}}
+@endif
+
 <table class="table table-dark">
     <thead class="thead-light">
         <tr>
