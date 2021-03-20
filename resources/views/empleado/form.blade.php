@@ -4,6 +4,8 @@
     <input type="text" name="Nombre" id="Nombre" placeholder="name" 
     value="{{Request::route()->getName() == 'empleado.create' ? '' : $empleado->Nombre}}">
     <br> --}}
+
+    <h2>{{$modo}}</h2>
     
     <label for="Nombre">Nombre</label>
     <input 

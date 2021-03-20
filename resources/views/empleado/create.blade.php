@@ -11,8 +11,8 @@
 <form action="{{route('empleado.store')}}" method="post" enctype="multipart/form-data">
 
     @csrf
-    
-    @include('empleado.form')
+
+    @include('empleado.form', ['modo' => 'Modalità create'])
 
     <button type="submit">Salva nuovo dipedente</button>
 

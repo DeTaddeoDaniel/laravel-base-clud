@@ -3,7 +3,7 @@
     @csrf
     @method('PUT')
     
-    @include('empleado.form')
+    @include('empleado.form', ['modo' => 'Modalità edit'])
 
     <button type="submit">Salva Modifiche</button>
 
