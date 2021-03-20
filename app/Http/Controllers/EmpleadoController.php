@@ -109,9 +109,12 @@ class EmpleadoController extends Controller
      * @param  \App\Empleado  $empleado
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Empleado  $empleado)
     {
-        Empleado::destroy($id);
+        if (Storage::delete('public/'.$empleado->foto)) {
+            Empleado::destroy($empleado->id);
+        }
+
         return redirect()->route('empleado.index');
 
     }
