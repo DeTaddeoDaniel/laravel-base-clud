@@ -18,7 +18,6 @@ class EmpleadoController extends Controller
 
         #
         $data['empleados'] = Empleado::paginate(500);
-        // dd($data);
         return View('empleado.index',$data);
     }
 
@@ -95,8 +94,11 @@ class EmpleadoController extends Controller
      * @param  \App\Empleado  $empleado
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Empleado $empleado)
+    public function destroy($id)
     {
-        //
+        Empleado::destroy($id);
+
+        return redirect('empleado');
+
     }
 }

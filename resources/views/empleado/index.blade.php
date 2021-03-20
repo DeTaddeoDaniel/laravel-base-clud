@@ -19,6 +19,13 @@
             <td>{{$empleado->ApellidoMaterno}}</td>
             <td>{{$empleado->ApellidoPaterno}}</td>
             <td>{{$empleado->Correo}}</td>
+            <td>
+                <form action="{{route('empleado.destroy', $empleado->id)}}" method="post">
+                    @csrf
+                    @method('DELETE')
+                    <button type="submit">Cancella</button>
+                </form>
+            </td>
         </tr>
              @endforeach
     </tbody>
