@@ -38,6 +38,13 @@ class EmpleadoController extends Controller
         // $data = request()->all();
         
         $data = request()->except('_token','_method');
+        
+        # se è presente una foto
+        if($request->hasFile('foto')){
+            # campo foto  - rotta del foto       - salva nello store (rotta, posizione)
+            $data['foto'] = $request->file('foto')->store('uploads','public');
+        }
+
         Empleado::insert($data);
 
         return response()->json($data);
