@@ -86,7 +86,13 @@ class EmpleadoController extends Controller
      */
     public function update(Request $request, Empleado $empleado)
     {
-        //
+        $data = request()->except('_token','_method');
+        
+        $empleado::where('id','=',$empleado->id)->update($data);
+
+        // return response()->json($data);
+        $data['empleados'] = Empleado::paginate(500);
+        return View('empleado.index',$data);
     }
 
     /**
