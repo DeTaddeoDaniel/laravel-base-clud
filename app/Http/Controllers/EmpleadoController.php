@@ -50,11 +50,8 @@ class EmpleadoController extends Controller
         }
 
         Empleado::insert($data);
-
-        // return response()->json($data);
-        $data['empleados'] = Empleado::paginate(500);
         
-        return View('empleado.index', $data);
+        return redirect()->route('empleado.index');
     }
 
     /**
@@ -103,8 +100,7 @@ class EmpleadoController extends Controller
         $empleado::where('id','=',$empleado->id)->update($data);
 
         // return response()->json($data);
-        $data['empleados'] = Empleado::paginate(500);
-        return View('empleado.index',$data);
+        return redirect()->route('empleado.index');
     }
 
     /**
@@ -116,7 +112,7 @@ class EmpleadoController extends Controller
     public function destroy($id)
     {
         Empleado::destroy($id);
-        return redirect('empleado');
+        return redirect()->route('empleado.index');
 
     }
 }
