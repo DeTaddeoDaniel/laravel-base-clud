@@ -53,7 +53,8 @@ class EmpleadoController extends Controller
 
         // return response()->json($data);
         $data['empleados'] = Empleado::paginate(500);
-        return View('empleado.update',$data);
+        
+        return View('empleado.index', $data);
     }
 
     /**
