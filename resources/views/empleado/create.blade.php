@@ -1,4 +1,7 @@
-<form action="" method="post" enctype="multipart/form-data">
+<form action="{{route('empleado.store')}}"" method="post" enctype="multipart/form-data" method="POST">
+
+    @csrf
+    @method('POST')
 
     <label for="Nombre">Nombre</label>
     <input type="text" name="Nombre" id="Nombre" placeholder="nome">
