@@ -14,7 +14,12 @@ class EmpleadoController extends Controller
      */
     public function index()
     {
-        return View('empleado.index');
+        # creiamo una variabile e inseriamo [], dove dentro mettiamo il nome della variabile che ci permettera di vedere i risultati dentro il blade
+
+        #
+        $data['empleados'] = Empleado::paginate(500);
+        // dd($data);
+        return View('empleado.index',$data);
     }
 
     /**
