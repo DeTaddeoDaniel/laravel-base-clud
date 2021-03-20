@@ -18,8 +18,8 @@ Route::get('/', function () {
     return view('auth.login');
 });
 
-
-Route::resource('/empleado', 'EmpleadoController');
+#middleware dice che entri solo con autenticazione, se non hai l'autenticazione ti manda fuori dalla sezione
+Route::resource('/empleado', 'EmpleadoController')->middleware('auth');
 
 Auth::routes();
 
