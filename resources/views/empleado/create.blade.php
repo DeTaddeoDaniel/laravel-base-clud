@@ -1,19 +1,17 @@
-{{-- <form action="{{route('empleado.store')}}"" method="post" enctype="multipart/form-data">
+@extends('layouts.app')
 
-    @csrf
-    
-    @include('empleado.form')
+@section('content')
 
-    <button type="submit">Salva nuovo dipedente</button>
+    <div class="container">
 
-</form> --}}
+        <form action="{{route('empleado.store')}}" method="post" enctype="multipart/form-data">
 
-<form action="{{route('empleado.store')}}" method="post" enctype="multipart/form-data">
+            @csrf
 
-    @csrf
+            @include('empleado.form', ['modo' => 'Modalità create'])
 
-    @include('empleado.form', ['modo' => 'Modalità create'])
+            <button type="submit">Salva nuovo dipedente</button>
 
-    <button type="submit">Salva nuovo dipedente</button>
-
-</form>
+        </form>
+    </div>
+@endsection

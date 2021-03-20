@@ -15,12 +15,20 @@ use App\Http\Controllers\EmpleadoController;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('auth.login');
 });
+
 
 Route::resource('/empleado', 'EmpleadoController');
 
-
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
+# rotta pubblica
+Route::get('/home', 'EmpleadoController@index')->name('home');
+
+# si attiva quando si autentica utente e lo porta della rotta
+Route::prefix('auth')->group(function () {
+    Route::get('/', 'EmpleadoController@index')->name('home');
+});
+
+
