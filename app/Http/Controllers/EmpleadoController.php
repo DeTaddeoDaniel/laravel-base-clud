@@ -42,6 +42,14 @@ class EmpleadoController extends Controller
         // $data = request()->all();
         
         $data = request()->except('_token','_method');
+
+        $request->validate($request, [
+            'Nombre' => 'required|string|max:100',
+            'ApellidoParterno' => 'required|string|max:100',
+            'ApelliMaterno' => 'required|string|max:100',
+            'Correo' => 'required|email',
+            'Foto' => 'required|max:10000|mimes:jpeg,jpg,png'
+        ]);
         
         # se è presente una foto
         if($request->hasFile('foto')){
