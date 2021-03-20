@@ -41,15 +41,16 @@ class EmpleadoController extends Controller
     {
         // $data = request()->all();
         
+        $request->validate([
+            'Nombre' => 'required|string|max:100',
+            'ApellidoPaterno' => 'required|string|max:100',
+            'ApellidoMaterno' => 'required|string|max:100',
+            'Correo' => 'required|email',
+            'foto' => 'required|max:10000|mimes:jpeg,jpg,png'
+        ]);
+        
         $data = request()->except('_token','_method');
 
-        $request->validate($request, [
-            'Nombre' => 'required|string|max:100',
-            'ApellidoParterno' => 'required|string|max:100',
-            'ApelliMaterno' => 'required|string|max:100',
-            'Correo' => 'required|email',
-            'Foto' => 'required|max:10000|mimes:jpeg,jpg,png'
-        ]);
         
         # se è presente una foto
         if($request->hasFile('foto')){
@@ -94,6 +95,14 @@ class EmpleadoController extends Controller
     public function update(Request $request, Empleado $empleado)
     {
         $data = request()->except('_token','_method');
+
+        $request->validate([
+            'Nombre' => 'required|string|max:100',
+            'ApellidoPaterno' => 'required|string|max:100',
+            'ApellidoMaterno' => 'required|string|max:100',
+            'Correo' => 'required|email',
+            'foto' => 'required|max:10000|mimes:jpeg,jpg,png'
+        ]);
 
         # controlla se l'immagine è cambiata
         if($request->hasFile('foto')){

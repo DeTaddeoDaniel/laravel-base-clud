@@ -20,7 +20,7 @@
         <label for="Nombre">Nombre</label>
         <input 
             type="text" name="Nombre" id="Nombre" placeholder="name" 
-            value="{{ isset($empleado->Nombre) ? $empleado->Nombre : '' }}"
+            value="{{ isset($empleado->Nombre) ? $empleado->Nombre : old('Nombre') }}"
             class="form-control">
     </div>
 
@@ -28,14 +28,14 @@
         <label for="ApellidoPaterno">ApellidoPaterno</label>
         <input 
             type="text" name="ApellidoPaterno" id="ApellidoPaterno" placeholder="ApellidoPaterno" class="form-control" 
-            value="{{isset($empleado->ApellidoPaterno) ? $empleado->ApellidoPaterno : ''}}">
+            value="{{isset($empleado->ApellidoPaterno) ? $empleado->ApellidoPaterno :  old('ApellidoPaterno')}}">
     </div>
 
     <div class="form-group">
         <label for="ApellidoMaterno">ApellidoMaterno</label>
         <input 
             type="text" name="ApellidoMaterno" id="ApellidoMaterno" placeholder="ApellidoMaterno"  class="form-control"
-            value="{{isset($empleado->ApellidoMaterno) ? $empleado->ApellidoMaterno : ''}}">
+            value="{{isset($empleado->ApellidoMaterno) ? $empleado->ApellidoMaterno : old('ApellidoMaterno')}}">
     </div>
 
     <div class="form-group">
@@ -43,7 +43,7 @@
         <input 
             type="text" name="Correo" id="Correo" 
             placeholder="Correo"  class="form-control"
-            value="{{isset($empleado->Correo) ? $empleado->Correo : ''}}">
+            value="{{isset($empleado->Correo) ? $empleado->Correo : old('Correo')}}">
     </div>
     
     <div class="form-group">
@@ -54,7 +54,7 @@
         @endif
 
         <label for="foto"></label>
-        <input type="file" name="foto" id="foto" class="form-controll mb-3">
+        <input type="file" name="foto" id="foto" class="form-controll mb-3" value="old('foto') ">
     </div>
 
     <button type="submit" class="btn btn-success">{{$button}}</button>
