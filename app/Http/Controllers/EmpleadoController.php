@@ -94,7 +94,7 @@ class EmpleadoController extends Controller
             # trova foto anteriore
             $remove = Empleado::findOrFail($empleado->id);
             # cancella foto interiore
-            Storage::delete('pubblic/'.$empleado->foto);
+            Storage::delete('public/'.$empleado->foto);
             # se ci sono cambi della foto cambia con la nuova immagine
             $data['foto'] = $request->file('foto')->store('uploads','public');
         }
