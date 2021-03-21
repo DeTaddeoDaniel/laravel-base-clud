@@ -17,7 +17,7 @@ class EmpleadoController extends Controller
     {
         # creiamo una variabile e inseriamo [], dove dentro mettiamo il nome della variabile che ci permettera di vedere i risultati dentro il blade
 
-        $data['empleados'] = Empleado::paginate(500);
+        $data['empleados'] = Empleado::paginate(4);
         return View('empleado.index',$data);
     }
 
