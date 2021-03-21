@@ -79,7 +79,7 @@
                 <tr>
                     <td>{{$empleado->id}}</td>
                     <td><img src="{{asset('storage').'/'.$empleado->foto}}" alt="" height=50px></td>
-                    <td>{{$empleado->nombre}}</td>
+                    <td>{{$empleado->Nombre}}</td>
                     <td>{{$empleado->ApellidoMaterno}}</td>
                     <td>{{$empleado->ApellidoPaterno}}</td>
                     <td>{{$empleado->Correo}}</td>
