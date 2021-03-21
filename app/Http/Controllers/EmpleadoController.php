@@ -132,7 +132,7 @@ class EmpleadoController extends Controller
             Empleado::destroy($empleado->id);
         }
 
-        return redirect()->route('empleado.index')->with('mensaje','Dipedente rimosso con successo');;
+        return redirect()->route('empleado.index')->with('delete','ok');;
 
     }
 }

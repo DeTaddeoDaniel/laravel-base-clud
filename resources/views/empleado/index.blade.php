@@ -1,12 +1,38 @@
 @extends('layouts.app')
 
 @section('js')
+
+    @if (Session('delete') == 'ok')
+        <script>
+            Swal.fire(
+                'Deleted!',
+                'Your file has been deleted.',
+                'success'
+            )
+        </script>
+    @endif
+
     <script>
-    Swal.fire(
-        'Good job!',
-        'You clicked the button!',
-        'success'
-    )
+
+    $('.destroy-item').submit(function (e) { 
+        e.preventDefault();
+        Swal.fire({
+        title: 'Are you sure?',
+        text: "You won't be able to revert this!",
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        confirmButtonText: 'Yes, delete it!'
+        }).then((result) => {
+        
+        if (result.isConfirmed) {
+            this.submit();
+        }
+        })
+
+    });
+    
     </script>
 @endsection
 
@@ -44,7 +70,7 @@
                     <td>
                         <a href="{{route('empleado.edit', $empleado->id)}}" class="btn btn-info text-light">Edit</a>
 
-                        <form action="{{route('empleado.destroy', $empleado->id)}}" method="post" class="d-inline">
+                        <form action="{{route('empleado.destroy', $empleado->id)}}" method="post" class="d-inline destroy-item">
                             @csrf
                             @method('DELETE')
                             <button type="submit" class="btn btn-danger">Cancella</button>
