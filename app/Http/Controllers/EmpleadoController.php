@@ -51,7 +51,6 @@ class EmpleadoController extends Controller
         
         $data = request()->except('_token','_method');
 
-        
         # se è presente una foto
         if($request->hasFile('foto')){
             # campo foto  - rotta del foto       - salva nello store (rotta, posizione)
@@ -60,7 +59,7 @@ class EmpleadoController extends Controller
 
         Empleado::insert($data);
         
-        return redirect()->route('empleado.index')->with('mensaje','Dipedente aggiunto con successo');
+        return redirect()->route('empleado.index')->with('operation','create');
     }
 
     /**
@@ -117,7 +116,7 @@ class EmpleadoController extends Controller
         $empleado::where('id','=',$empleado->id)->update($data);
 
         // return response()->json($data);
-        return redirect()->route('empleado.index');
+        return redirect()->route('empleado.index')->with('operation','update');
     }
 
     /**
@@ -132,7 +131,7 @@ class EmpleadoController extends Controller
             Empleado::destroy($empleado->id);
         }
 
-        return redirect()->route('empleado.index')->with('delete','ok');;
+        return redirect()->route('empleado.index')->with('operation','delete');
 
     }
 }

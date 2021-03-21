@@ -2,7 +2,7 @@
 
 @section('js')
 
-    @if (Session('delete') == 'ok')
+    @if (Session('delete') == 'delete')
         <script>
             Swal.fire(
                 'Deleted!',
@@ -10,28 +10,44 @@
                 'success'
             )
         </script>
+    @elseif(Session('operation') == 'create')
+        <script>
+            Swal.fire(
+                'Add person!',
+                ' Person has been  add.',
+                'success'
+            )
+        </script>
+    @elseif(Session('operation') == 'update')
+        <script>
+            Swal.fire(
+                'update!',
+                ' the data is been update.',
+                'success'
+            )
+        </script>
     @endif
 
     <script>
 
-    $('.destroy-item').submit(function (e) { 
-        e.preventDefault();
-        Swal.fire({
-        title: 'Are you sure?',
-        text: "You won't be able to revert this!",
-        icon: 'warning',
-        showCancelButton: true,
-        confirmButtonColor: '#3085d6',
-        cancelButtonColor: '#d33',
-        confirmButtonText: 'Yes, delete it!'
-        }).then((result) => {
-        
-        if (result.isConfirmed) {
-            this.submit();
-        }
-        })
+        $('.destroy-item').submit(function (e) { 
+            e.preventDefault();
+            Swal.fire({
+            title: 'Are you sure?',
+            text: "You won't be able to revert this!",
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Yes, delete it!'
+            }).then((result) => {
+            
+                if (result.isConfirmed) {
+                    this.submit();
+                }
+            })
 
-    });
+        });
     
     </script>
 @endsection
