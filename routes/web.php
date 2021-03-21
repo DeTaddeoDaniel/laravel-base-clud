@@ -22,7 +22,7 @@ Route::get('/', function () {
 Route::resource('/empleado', 'EmpleadoController')->middleware('auth');
 
 # opzioni che vogliamo non far vedere
-Auth::routes(['register'=>false, 'reset'=>false]);
+Auth::routes();
 
 # rotta pubblica
 Route::get('/home', 'EmpleadoController@index')->name('home');

@@ -18,9 +18,26 @@
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+
+    {{-- <link href="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.css" rel="stylesheet" /> --}}
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+
+
+
+    @section('alert')
+
 </head>
 <body>
     <div id="app">
+
+        <script>
+            Swal.fire(
+            'Good job!',
+            'You clicked the button!',
+            'success'
+            )
+        </script>
+
         <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
             <div class="container">
                 <a class="navbar-brand" href="{{ url('/') }}">
@@ -75,6 +92,9 @@
         <main class="py-4">
             @yield('content')
         </main>
+
     </div>
+
+    
 </body>
 </html>
