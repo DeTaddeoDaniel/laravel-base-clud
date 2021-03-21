@@ -100,7 +100,6 @@ class EmpleadoController extends Controller
             'ApellidoPaterno' => 'required|string|max:100',
             'ApellidoMaterno' => 'required|string|max:100',
             'Correo' => 'required|email',
-            'foto' => 'required|max:10000|mimes:jpeg,jpg,png'
         ]);
 
         # controlla se l'immagine è cambiata
